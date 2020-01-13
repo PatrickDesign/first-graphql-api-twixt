@@ -1,11 +1,22 @@
 const express = require('express')
+const { GraphQLServer } = require('graphql-yoga')
 
-const PORT = process.env ? process.env.PORT : 3000
+const typeDefs =  `type Query { hello(name: String): String! }`
 
-const app = express()
+const resolvers = {
+    Query: {
+        hello: (_, { name }) => `Hello, ${name || 'World'}`,
+    },
+}
 
-app.get('/', (req, res) => {
-    res.send('Hi evan...');
-})
+const server = new GraphQLServer({typeDefs, resolvers})
 
-app.listen(PORT, () => console.log(`Example app listening on port ${PORT}!`))
+const PORT = process.env.PORT ? process.env.PORT : 3000
+
+server.start({port: PORT}, () => console.log(`Example app listening on port ${PORT}!`))
+
+// const app = express();
+
+// app.get("/", (req, res) => {
+//   res.send("Hi evan...");
+// });
