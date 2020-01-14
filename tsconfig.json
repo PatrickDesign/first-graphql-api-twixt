@@ -1,10 +1,11 @@
 {
+    "compileOnSave": true,
     "compilerOptions": {
-        "module": "amd",
+        "module": "system",
         "noImplicitAny": true,
         "removeComments": true,
         "preserveConstEnums": true,
-        "outFile": "../../built/local/tsc.js",
+        "outFile": "built/local/app.js",
         "sourceMap": true
     },
     "include": [
