@@ -1,0 +1,14 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource postgresql {
+  provider = "postgresql"
+  url      = "postgres://ncdtzjda:fpDu79bqjya-zt6ksmVyoe_hLOTLc2Ti@rajje.db.elephantsql.com:5432/ncdtzjda"
+}
+
+model User {
+  dateField DateTime?
+  id        Int       @id
+  name      String
+}

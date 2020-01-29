@@ -1,0 +1,18 @@
+scalar Date
+
+type User {
+  id: ID
+  name: String
+  createdAt: Date
+  updatedAt: Date
+}
+
+type Query {
+  hello(name: String): String!
+  users(id: Int!): User
+}
+
+type Mutation {
+    createUser(name: String!, id: Int!): User
+    changeName(name: String!, id: Int!): User
+}
